@@ -2,7 +2,7 @@
 
 [![Continuous integration](https://github.com/tetsuo13/AspNetCore.DataProtection.MySql/actions/workflows/ci.yml/badge.svg)](https://github.com/tetsuo13/AspNetCore.DataProtection.MySql/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-An ASP.NET Core [Data Protection](https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/introduction) provider for MySQL and MariaDB using [MySqlConnector](https://mysqlconnector.net/).
+An ASP.NET Core [Data Protection](https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/introduction) provider for MySQL using [MySqlConnector](https://mysqlconnector.net/).
 
 ## Getting Started
 
