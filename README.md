@@ -37,7 +37,7 @@ Note: See [key storage providers in ASP.NET Core](https://learn.microsoft.com/en
 The overload to `.PersistKeysToMySql()` accepts a parameter to customize behavior:
 
 ```csharp
-builder.Services.AddDataProtection()
+services.AddDataProtection()
     .PersistKeysToMySql(options =>
     {
         // Change the default table name to something else.
