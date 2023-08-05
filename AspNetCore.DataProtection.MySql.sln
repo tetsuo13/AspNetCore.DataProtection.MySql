@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.DataProtection.MySql", "src\AspNetCore.DataProtection.MySql\AspNetCore.DataProtection.MySql.csproj", "{2B66B712-698C-4933-A955-7B43400BD75E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.DataProtection.MySql.Tests", "tests\AspNetCore.DataProtection.MySql.Tests\AspNetCore.DataProtection.MySql.Tests.csproj", "{388780FF-E630-47C6-B52A-98C40BE35303}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B66B712-698C-4933-A955-7B43400BD75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B66B712-698C-4933-A955-7B43400BD75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B66B712-698C-4933-A955-7B43400BD75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B66B712-698C-4933-A955-7B43400BD75E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388780FF-E630-47C6-B52A-98C40BE35303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388780FF-E630-47C6-B52A-98C40BE35303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388780FF-E630-47C6-B52A-98C40BE35303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388780FF-E630-47C6-B52A-98C40BE35303}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {254B7E8B-8938-4A80-8E53-A7CAA7E7768E}
+	EndGlobalSection
+EndGlobal

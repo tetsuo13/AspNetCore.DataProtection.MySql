@@ -1,0 +1,11 @@
+name: Continuous integration
+
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build:
+    name: Build and Test
+    uses: ./.github/workflows/workflow/build.yml

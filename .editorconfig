@@ -1,0 +1,14 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+insert_final_newline = true
+end_of_line = lf
+
+[*.cs]
+indent_size = 4
+
+dotnet_diagnostic.CA2100.severity = none # Review SQL queries for security vulnerabilities
