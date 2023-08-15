@@ -37,7 +37,6 @@ jobs:
         #if: ${{ inputs.createPackage }}
         run: >
           dotnet pack
-          src\AspNetCore.DataProtection.MySql
           --configuration Release
           --no-build
           --no-restore
