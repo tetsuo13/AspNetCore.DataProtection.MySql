@@ -2,6 +2,11 @@ name: Build and test solution
 
 on:
   workflow_call:
+    inputs:
+      createPackage:
+        description: Whether or not to create the NuGet package
+        required: true
+        type: boolean
 
 jobs:
   build:
@@ -13,6 +18,7 @@ jobs:
       DOTNET_CLI_TELEMETRY_OPTOUT: true
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
       DOTNET_NOLOGO: true
+      PACKAGE_PATH: artifacts
 
     steps:
       - name: Clone repository
@@ -26,3 +32,21 @@ jobs:
 
       - name: Test
         run: dotnet test --no-build --verbosity normal --configuration Release
+
+      - name: Create NuGet package
+        #if: ${{ inputs.createPackage }}
+        run: >
+          dotnet pack
+          src\AspNetCore.DataProtection.MySql
+          --configuration Release
+          --no-build
+          --no-restore
+          --output ${{ env.PACKAGE_PATH }}
+
+      - name: Upload NuGet package
+        #if: ${{ inputs.createPackage }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: ${{ env.PACKAGE_PATH }}
+          retention-days: 1

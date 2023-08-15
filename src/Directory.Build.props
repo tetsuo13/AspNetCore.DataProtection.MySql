@@ -1,33 +1,5 @@
 <Project>
 
-  <PropertyGroup>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <PackageReleaseNotes>https://github.com/tetsuo13/AspNetCore.DataProtection.MySql/blob/main/CHANGELOG.md</PackageReleaseNotes>
-    <PackageProjectUrl>https://github.com/tetsuo13/AspNetCore.DataProtection.MySql</PackageProjectUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/tetsuo13/AspNetCore.DataProtection.MySql.git</RepositoryUrl>
-    <DebugType>embedded</DebugType>
-    <Version>1.0.0</Version>
-    <!--<EnablePackageValidation>true</EnablePackageValidation>-->
-    <PackageValidationBaselineVersion>2.0.0</PackageValidationBaselineVersion>
-    <EnableStrictModeForCompatibleFrameworksInPackageValidation>true</EnableStrictModeForCompatibleFrameworksInPackageValidation>
-    <EnableStrictModeForCompatibleTfms>true</EnableStrictModeForCompatibleTfms>
-    <LangVersion>10.0</LangVersion>
-    <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
-    <AnalysisLevel>latest-all</AnalysisLevel>
-    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
-    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(GITHUB_ACTIONS)' == 'true' ">
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
+  
 
 </Project>
