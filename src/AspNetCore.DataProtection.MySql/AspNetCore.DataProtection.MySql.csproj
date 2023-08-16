@@ -45,11 +45,6 @@
     <InternalsVisibleTo Include="$(MSBuildProjectName).Tests" Key="00240000048000009400000006020000002400005253413100040000010001006984892d462f158a31b957fc34304d9880563ac6c2d15f7dbfaf53385b8c477d336a4b0e1b239fa68e71628018c8800772cd6fa580f25fa437c072900cb5b66982be318b513c2899ebc4de0efbfda4dd815b25095f5513a43beaf7f75d5428b2146f587f8fdcca8b34f69841bd320d1757bd5a3d388742156869316fcd8e95b5" />
   </ItemGroup>
 
-  <!--<PropertyGroup Condition=" '$(GITHUB_ACTIONS)' == 'true' ">-->
-  <PropertyGroup>
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
     <None Include="..\..\README.md" Pack="true" PackagePath="" />
