@@ -30,6 +30,9 @@ jobs:
       - name: Build
         run: dotnet build --no-restore --configuration Release /property:ContinuousIntegrationBuild=true
 
+      - name: Test
+        run: dotnet test --no-build --verbosity normal --configuration Release
+
       - name: Create NuGet package
         #if: ${{ inputs.createPackage }}
         run: >
@@ -38,9 +41,7 @@ jobs:
           --no-build
           --no-restore
           --output ${{ env.PACKAGE_PATH }}
-
-      - name: Test
-        run: dotnet test --no-build --verbosity normal --configuration Release
+          /property:ContinuousIntegrationBuild=true
 
       - name: Upload NuGet package
         #if: ${{ inputs.createPackage }}
