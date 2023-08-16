@@ -28,7 +28,7 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release /property:ContinuousIntegrationBuild=true
+        run: dotnet build --no-restore --configuration Release
 
       - name: Test
         run: dotnet test --no-build --verbosity normal --configuration Release
@@ -41,7 +41,6 @@ jobs:
           --no-build
           --no-restore
           --output ${{ env.PACKAGE_PATH }}
-          /property:ContinuousIntegrationBuild=true
 
       - name: Upload NuGet package
         #if: ${{ inputs.createPackage }}
