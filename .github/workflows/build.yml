@@ -41,6 +41,7 @@ jobs:
           --no-build
           --no-restore
           --output ${{ env.PACKAGE_PATH }}
+          -property:RepositoryCommit=${{ env.GITHUB_SHA }}
 
       - name: Upload NuGet package
         #if: ${{ inputs.createPackage }}
