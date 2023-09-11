@@ -34,17 +34,18 @@ jobs:
         run: dotnet test --no-build --verbosity normal --configuration Release
 
       - name: Create NuGet package
-        #if: ${{ inputs.createPackage }}
+        if: ${{ inputs.createPackage }}
         run: >
           dotnet pack
           --configuration Release
           --no-build
           --no-restore
           --output ${{ env.PACKAGE_PATH }}
+          --version-suffix ci-$GITHUB_RUN_ID
           -property:RepositoryCommit=$GITHUB_SHA
 
       - name: Upload NuGet package
-        #if: ${{ inputs.createPackage }}
+        if: ${{ inputs.createPackage }}
         uses: actions/upload-artifact@v3
         with:
           name: package

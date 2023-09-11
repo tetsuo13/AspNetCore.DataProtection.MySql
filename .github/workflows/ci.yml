@@ -10,7 +10,8 @@ jobs:
     name: Build and Test
     uses: ./.github/workflows/build.yml
     with:
-      createPackage: ${{ startsWith(github.ref, 'refs/tags/') }}
+      #createPackage: ${{ startsWith(github.ref, 'refs/tags/') }}
+      createPackage: true
 
   publish:
     name: Publish NuGet Package
@@ -20,3 +21,10 @@ jobs:
     steps:
       - name: Download NuGet package
         uses: actions/download-artifact@v3
+
+      #- name: Push to NuGet
+      #  run: >
+      #    dotnet nuget
+      #    push package/*
+      #    --api-key {{ secrets.NUGET_API_KEY }}
+      #    --source https://api.nuget.org/v3/index.json
