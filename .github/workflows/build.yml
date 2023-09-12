@@ -7,6 +7,10 @@ on:
         description: Whether or not to create the NuGet package
         required: true
         type: boolean
+      artifactsPath:
+        description: Directory path to create NuGet package into
+        required: false
+        type: string
 
 jobs:
   build:
@@ -40,7 +44,7 @@ jobs:
           --configuration Release
           --no-build
           --no-restore
-          --output ${{ env.PACKAGE_PATH }}
+          --output ${{ inputs.artifactsPath }}
           --version-suffix beta-$GITHUB_RUN_NUMBER
           -property:RepositoryCommit=$GITHUB_SHA
 
@@ -49,5 +53,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: package
-          path: ${{ env.PACKAGE_PATH }}
+          path: ${{ inputs.artifactsPath }}
           retention-days: 1
