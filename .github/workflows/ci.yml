@@ -35,7 +35,7 @@ jobs:
         run: dotnet test --no-build --verbosity normal --configuration Release
 
       - name: Create NuGet package
-        if: env.CREATE_PACKAGE
+        if: ${{ env.CREATE_PACKAGE }}
         run: >
           dotnet pack
           --configuration Release
@@ -46,7 +46,7 @@ jobs:
           -property:RepositoryCommit=$GITHUB_SHA
 
       - name: Upload NuGet package
-        if: env.CREATE_PACKAGE
+        if: ${{ env.CREATE_PACKAGE }}
         uses: actions/upload-artifact@v3
         with:
           name: package
@@ -56,7 +56,7 @@ jobs:
   publish:
     name: Publish NuGet Package
     needs: build
-    if: env.CREATE_PACKAGE
+    if: ${{ env.CREATE_PACKAGE }}
     runs-on: ubuntu-latest
     steps:
       - name: Download NuGet package
