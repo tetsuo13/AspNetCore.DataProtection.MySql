@@ -5,6 +5,10 @@ on:
     paths-ignore:
       - '**.md'
 
+env:
+  # Create NuGet package and upload to NuGet when a tag is pushed.
+  CREATE_PACKAGE: ${{ startsWith(github.ref, 'refs/tags/') }}
+
 jobs:
   build:
     name: Build and Test
@@ -16,8 +20,6 @@ jobs:
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
       DOTNET_NOLOGO: true
       PACKAGE_PATH: artifacts
-      # Create NuGet package and upload to NuGet when a tag is pushed.
-      CREATE_PACKAGE: ${{ startsWith(github.ref, 'refs/tags/') }}
 
     steps:
       - name: Clone repository
