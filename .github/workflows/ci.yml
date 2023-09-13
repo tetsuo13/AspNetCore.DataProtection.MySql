@@ -40,7 +40,6 @@ jobs:
           --no-build
           --no-restore
           --output ${{ env.PACKAGE_PATH }}
-          --version-suffix beta-$GITHUB_RUN_NUMBER
           -property:RepositoryCommit=$GITHUB_SHA
 
       - name: Upload NuGet package
