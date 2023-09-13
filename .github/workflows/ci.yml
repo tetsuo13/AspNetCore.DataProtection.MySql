@@ -8,15 +8,53 @@ on:
 jobs:
   build:
     name: Build and Test
-    uses: ./.github/workflows/build.yml
-    with:
-      #createPackage: ${{ startsWith(github.ref, 'refs/tags/') }}
-      createPackage: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+      DOTNET_NOLOGO: true
+      PACKAGE_PATH: artifacts
+      # Create NuGet package and upload to NuGet when a tag is pushed.
+      CREATE_PACKAGE: ${{ startsWith(github.ref, 'refs/tags/') }}
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Test
+        run: dotnet test --no-build --verbosity normal --configuration Release
+
+      - name: Create NuGet package
+        if: ${{ env.CREATE_PACKAGE }}
+        run: >
+          dotnet pack
+          --configuration Release
+          --no-build
+          --no-restore
+          --output ${{ env.PACKAGE_PATH }}
+          --version-suffix beta-$GITHUB_RUN_NUMBER
+          -property:RepositoryCommit=$GITHUB_SHA
+
+      - name: Upload NuGet package
+        if: ${{ env.CREATE_PACKAGE }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: ${{ env.PACKAGE_PATH }}
+          retention-days: 1
 
   publish:
     name: Publish NuGet Package
     needs: build
-    #if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    if: ${{ env.CREATE_PACKAGE }}
     runs-on: ubuntu-latest
     steps:
       - name: Download NuGet package
@@ -25,6 +63,6 @@ jobs:
       - name: Push to NuGet
         run: >
           dotnet nuget
-          push package/*
+          push ${{ env.PACKAGE_PATH }}/*
           --api-key ${{ secrets.NUGET_API_KEY }}
           --source https://api.nuget.org/v3/index.json
