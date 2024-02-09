@@ -44,7 +44,7 @@ jobs:
 
       - name: Upload NuGet package
         if: env.CREATE_PACKAGE == 'true'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: package
           path: ${{ env.PACKAGE_PATH }}
@@ -61,7 +61,7 @@ jobs:
 
     steps:
       - name: Download NuGet package
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Push to NuGet
         run: >
