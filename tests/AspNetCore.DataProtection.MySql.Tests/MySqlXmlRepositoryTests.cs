@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging.Abstractions;
 using Xunit;
 
-namespace AspNetCore.DataProtection.MySql;
+namespace AspNetCore.DataProtection.MySql.Tests;
 
 public class MySqlXmlRepositoryTests
 {
@@ -12,29 +12,31 @@ public class MySqlXmlRepositoryTests
     {
         Assert.Throws<ArgumentNullException>(() =>
         {
-            new MySqlXmlRepository(null!, NullLoggerFactory.Instance, new MySqlDataProtectionOptions());
+            var _ = new MySqlXmlRepository(null!, NullLoggerFactory.Instance, new MySqlDataProtectionOptions());
         });
     }
 
     [Fact]
     public void CreateRepository_ThrowsIf_LoggerFactoryIsNull()
     {
+        var serviceCollection = new ServiceCollection();
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
         Assert.Throws<ArgumentNullException>(() =>
         {
-            var serviceCollection = new ServiceCollection();
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-            new MySqlXmlRepository(serviceProvider, null!, new MySqlDataProtectionOptions());
+            var _ = new MySqlXmlRepository(serviceProvider, null!, new MySqlDataProtectionOptions());
         });
     }
 
     [Fact]
     public void CreateRepository_ThrowsIf_OptionsIsNull()
     {
+        var serviceCollection = new ServiceCollection();
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
         Assert.Throws<ArgumentNullException>(() =>
         {
-            var serviceCollection = new ServiceCollection();
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-            new MySqlXmlRepository(serviceProvider, NullLoggerFactory.Instance, null!);
+            var _ = new MySqlXmlRepository(serviceProvider, NullLoggerFactory.Instance, null!);
         });
     }
 
@@ -48,13 +50,12 @@ public class MySqlXmlRepositoryTests
         {
             TableName = tableName!
         };
+        var serviceCollection = new ServiceCollection();
+        var serviceProvider = serviceCollection.BuildServiceProvider();
 
         Assert.Throws<ArgumentNullException>("configuration", () =>
         {
-            var serviceCollection = new ServiceCollection();
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-
-            new MySqlXmlRepository(serviceProvider, NullLoggerFactory.Instance, configuration);
+            var _ = new MySqlXmlRepository(serviceProvider, NullLoggerFactory.Instance, configuration);
         });
     }
 }

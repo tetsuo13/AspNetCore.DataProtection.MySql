@@ -12,10 +12,10 @@ namespace AspNetCore.DataProtection.MySql;
 /// </summary>
 public class MySqlXmlRepository : IXmlRepository
 {
-    internal readonly string tableName;
+    internal readonly string TableName;
 
-    private string GetAllElementsSql => $"SELECT FriendlyName, Xml FROM {tableName}";
-    private string StoreElementSql => $"INSERT INTO {tableName} (FriendlyName, Xml) VALUES (@FriendlyName, @Xml)";
+    private string GetAllElementsSql => $"SELECT FriendlyName, Xml FROM {TableName}";
+    private string StoreElementSql => $"INSERT INTO {TableName} (FriendlyName, Xml) VALUES (@FriendlyName, @Xml)";
 
     private readonly IServiceProvider _services;
     private readonly ILogger<MySqlXmlRepository> _logger;
@@ -47,7 +47,7 @@ public class MySqlXmlRepository : IXmlRepository
 
         _services = services ?? throw new ArgumentNullException(nameof(services));
         _logger = loggerFactory.CreateLogger<MySqlXmlRepository>();
-        tableName = configuration.TableName;
+        TableName = configuration.TableName;
     }
 
     /// <inheritdoc/>

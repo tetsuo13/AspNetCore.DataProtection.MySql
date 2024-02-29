@@ -53,6 +53,6 @@ public class MySqlDataProtectionBuilderExtensionsTests
         var xmlRepository = keyManagementOptions.Value.XmlRepository as MySqlXmlRepository;
 
         Assert.NotNull(xmlRepository);
-        Assert.Equal(expectedTableName, xmlRepository.tableName);
+        Assert.Equal(expectedTableName, xmlRepository.TableName);
     }
 }
