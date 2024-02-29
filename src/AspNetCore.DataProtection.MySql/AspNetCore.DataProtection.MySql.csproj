@@ -9,7 +9,7 @@
     <AssemblyName>AspNetCore.DataProtection.MySql</AssemblyName>
     <Product>AspNetCore.DataProtection.MySql</Product>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>mysql;mysqlconnector;aspnet;dataprotection</PackageTags>
+    <PackageTags>mysql;mariadb;mysqlconnector;aspnet;dataprotection</PackageTags>
     <PackageId>AspNetCore.DataProtection.MySql</PackageId>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>AspNetCore.DataProtection.MySql</RootNamespace>
