@@ -28,6 +28,6 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(Configuration)' == 'Release' and '$(SourceRoot)'==''">
-    <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+    <SourceRoot Include="$(MSBuildThisFileDirectory)/" />
   </ItemGroup>
 </Project>
