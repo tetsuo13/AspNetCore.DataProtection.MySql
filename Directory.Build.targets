@@ -1,5 +1,5 @@
 <Project>
   <ItemGroup>
-    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)" />
   </ItemGroup>
 </Project>
