@@ -4,8 +4,16 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # Using different verions depending on the target framework
+      - dependency-name: microsoft.aspnetcore.dataprotection
+    groups:
+      xunit:
+        paterns:
+          - xunit*
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+
