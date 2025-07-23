@@ -9,7 +9,7 @@ updates:
       - dependency-name: microsoft.aspnetcore.dataprotection
     groups:
       xunit:
-        paterns:
+        patterns:
           - xunit*
 
   - package-ecosystem: "github-actions"
