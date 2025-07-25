@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
-      # Using different verions depending on the target framework
+      # Using different versions depending on the target framework
       - dependency-name: microsoft.aspnetcore.dataprotection
     groups:
       xunit:
