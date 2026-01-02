@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     env:
-      PACKAGE_PATH: artifacts
+      PACKAGE_PATH: package
 
     steps:
       - name: Download NuGet package
