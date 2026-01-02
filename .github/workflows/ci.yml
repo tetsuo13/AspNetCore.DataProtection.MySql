@@ -62,6 +62,7 @@ jobs:
     steps:
       - name: Download NuGet package
         uses: actions/download-artifact@v7
+        with:
           name: ${{ env.PACKAGE_PATH }}
 
       - name: Show package
