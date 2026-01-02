@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.2.0 (2026-01-02)
 
 Add .NET 10 support, drop support for .NET 6 and .NET Standard 2.1
 
