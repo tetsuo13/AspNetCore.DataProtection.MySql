@@ -62,7 +62,8 @@ jobs:
     steps:
       - name: Download NuGet package
         uses: actions/download-artifact@v7
+          name: ${{ env.PACKAGE_PATH }}
 
       - name: Show package
-        run: echo "${{ env.PACKAGE_PATH }}" && ls -l "${{ env.PACKAGE_PATH }}"
+        run: echo "${{ env.PACKAGE_PATH }}" && ls -l && ls -l "${{ env.PACKAGE_PATH }}"
 
