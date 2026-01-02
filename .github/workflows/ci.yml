@@ -62,10 +62,13 @@ jobs:
     steps:
       - name: Download NuGet package
         uses: actions/download-artifact@v7
+        with:
+          name: ${{ env.PACKAGE_PATH }}
 
       - name: Push to NuGet
         run: >
           dotnet nuget
-          push ${{ env.PACKAGE_PATH }}/*
+          push *.nupkg
           --api-key ${{ secrets.NUGET_API_KEY }}
           --source https://api.nuget.org/v3/index.json
+
