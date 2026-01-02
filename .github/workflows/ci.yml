@@ -65,6 +65,10 @@ jobs:
         with:
           name: ${{ env.PACKAGE_PATH }}
 
-      - name: Show package
-        run: echo "${{ env.PACKAGE_PATH }}" && ls -l && ls -l "${{ env.PACKAGE_PATH }}"
+      - name: Push to NuGet
+        run: >
+          dotnet nuget
+          push *.nupkg
+          --api-key ${{ secrets.NUGET_API_KEY }}
+          --source https://api.nuget.org/v3/index.json
 
