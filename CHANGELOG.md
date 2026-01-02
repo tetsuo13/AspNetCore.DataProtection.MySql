@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-Add .NET 10 support, drop support for .NET Standard 2.1
+Add .NET 10 support, drop support for .NET 6 and .NET Standard 2.1
 
 ## 1.1.0 (2024-02-28)
 
