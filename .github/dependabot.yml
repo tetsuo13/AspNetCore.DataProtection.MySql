@@ -1,9 +1,9 @@
 version: 2
 updates:
-  - package-ecosystem: "nuget"
-    directory: "/"
+  - package-ecosystem: nuget
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: monthly
     ignore:
       # Using different versions depending on the target framework
       - dependency-name: microsoft.aspnetcore.dataprotection
@@ -12,8 +12,8 @@ updates:
         patterns:
           - xunit*
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: monthly
 
